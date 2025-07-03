@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - Pickle Paradise{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-dark mb-3">Get in Touch</h1>
+        <p class="lead text-muted">Have questions about our pickles? We'd love to hear from you.</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="fas fa-envelope me-2"></i>Send us a Message</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Contact Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon bg-success text-white rounded-circle me-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Call Us</h6>
+                                <p class="text-muted mb-0">+91 98765 43210</p>
+                                <small class="text-muted">Mon-Sat 9AM-8PM</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon bg-success text-white rounded-circle me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Email Us</h6>
+                                <p class="text-muted mb-0">hello@pickleparadise.com</p>
+                                <small class="text-muted">We reply within 24 hours</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item mb-4">
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon bg-success text-white rounded-circle me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Visit Us</h6>
+                                <p class="text-muted mb-0">123 Spice Street, Food Market</p>
+                                <small class="text-muted">Mumbai, Maharashtra 400001</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="d-flex align-items-center">
+                            <div class="contact-icon bg-success text-white rounded-circle me-3">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Business Hours</h6>
+                                <p class="text-muted mb-0">Mon-Sat: 9AM-8PM</p>
+                                <small class="text-muted">Sunday: 10AM-6PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="card shadow-sm mt-4">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Frequently Asked Questions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="faq-item mb-3">
+                        <h6 class="fw-bold">How long do the pickles last?</h6>
+                        <p class="text-muted small">Our pickles have a shelf life of 12 months when stored properly in a cool, dry place.</p>
+                    </div>
+                    
+                    <div class="faq-item mb-3">
+                        <h6 class="fw-bold">Do you offer bulk orders?</h6>
+                        <p class="text-muted small">Yes, we offer special pricing for bulk orders. Contact us for custom quotes.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h6 class="fw-bold">What are your shipping options?</h6>
+                        <p class="text-muted small">We offer free shipping on orders above ₹500 and express delivery options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

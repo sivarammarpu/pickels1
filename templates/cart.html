@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Shopping Cart - Pickle Paradise{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Shopping Cart</h4>
+                </div>
+                <div class="card-body">
+                    {% if cart_items %}
+                        {% for item in cart_items %}
+                        <div class="cart-item border-bottom py-3" data-product-id="{{ item.product_id }}">
+                            <div class="row align-items-center">
+                                <div class="col-md-2">
+                                    <img src="https://images.pexels.com/photos/4518843/pexels-photo-4518843.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                         class="img-fluid rounded" alt="{{ item.product_name }}">
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bold">{{ item.product_name }}</h6>
+                                    <p class="text-muted small mb-0">₹{{ item.product_price }} each</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary btn-sm quantity-btn" data-action="decrease">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input type="number" class="form-control text-center quantity-input" 
+                                               value="{{ item.quantity }}" min="1" readonly>
+                                        <button class="btn btn-outline-secondary btn-sm quantity-btn" data-action="increase">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <h6 class="fw-bold text-success">₹{{ (item.product_price * item.quantity)|round(2) }}</h6>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-outline-danger btn-sm remove-item-btn">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                            <h4 class="text-muted">Your cart is empty</h4>
+                            <p class="text-muted">Add some delicious pickles to get started!</p>
+                            <a href="{{ url_for('home') }}" class="btn btn-success">Continue Shopping</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        {% if cart_items %}
+        <div class="col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">₹{{ total }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Shipping:</span>
+                        <span class="text-success">Free</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3">
+                        <strong>Total:</strong>
+                        <strong id="total" class="text-success">₹{{ total }}</strong>
+                    </div>
+                    
+                    <a href="{{ url_for('checkout') }}" class="btn btn-success w-100 py-3 fw-semibold">
+                        <i class="fas fa-credit-card me-2"></i>Proceed to Checkout
+                    </a>
+                    
+                    <a href="{{ url_for('home') }}" class="btn btn-outline-success w-100 mt-2">
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Quantity update buttons
+    document.querySelectorAll('.quantity-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const cartItem = this.closest('.cart-item');
+            const productId = cartItem.dataset.productId;
+            const quantityInput = cartItem.querySelector('.quantity-input');
+            const action = this.dataset.action;
+            
+            let newQuantity = parseInt(quantityInput.value);
+            if (action === 'increase') {
+                newQuantity++;
+            } else if (action === 'decrease' && newQuantity > 1) {
+                newQuantity--;
+            }
+            
+            updateCartQuantity(productId, newQuantity);
+        });
+    });
+    
+    // Remove item buttons
+    document.querySelectorAll('.remove-item-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const cartItem = this.closest('.cart-item');
+            const productId = cartItem.dataset.productId;
+            removeFromCart(productId);
+        });
+    });
+});
+
+function updateCartQuantity(productId, quantity) {
+    fetch('/update_cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `product_id=${productId}&quantity=${quantity}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        } else {
+            alert('Error updating cart');
+        }
+    });
+}
+
+function removeFromCart(productId) {
+    if (confirm('Are you sure you want to remove this item?')) {
+        fetch('/remove_from_cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `product_id=${productId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error removing item');
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

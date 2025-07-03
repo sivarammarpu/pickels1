@@ -1,0 +1,18 @@
+[
+  {
+    "id": "066b3a71-2aad-44a4-9755-f50ecd62763e",
+    "email": "admin@ammaspickles.com",
+    "name": "SIVA RAM",
+    "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+    "phone": "07989534082",
+    "created_at": "2025-07-03T22:40:16.304270"
+  },
+  {
+    "id": "f6fc5179-e823-4016-b3c5-69ea615da4e0",
+    "email": "siddhu@gmail.com",
+    "name": "siddhu",
+    "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+    "phone": "8647652342",
+    "created_at": "2025-07-03T22:42:15.050472"
+  }
+]

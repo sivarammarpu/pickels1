@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Pickle Paradise{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h2 class="fw-bold text-success mb-2">Create Account</h2>
+                        <p class="text-muted">Join us to start your pickle journey</p>
+                    </div>
+                    
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-semibold">Phone Number (Optional)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password" required minlength="6">
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted">Password must be at least 6 characters long</small>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success w-100 py-3 fw-semibold">
+                            <i class="fas fa-user-plus me-2"></i>Create Account
+                        </button>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <p class="text-muted">
+                            Already have an account? 
+                            <a href="{{ url_for('login') }}" class="text-success fw-semibold text-decoration-none">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const password = document.getElementById('password');
+    const icon = this.querySelector('i');
+    
+    if (password.type === 'password') {
+        password.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        password.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+});
+</script>
+{% endblock %}
