@@ -1,0 +1,166 @@
+{
+  "carts": {
+    "user_123": [
+      {
+        "product_id": "1",
+        "product": {
+          "id": "1",
+          "name": "Traditional Mango Pickle",
+          "price": 299,
+          "original_price": 350,
+          "description": "Authentic homemade mango pickle with traditional spices and mustard oil.",
+          "category": "vegetarian",
+          "image": "images/mango.jpg",
+          "rating": 4.8,
+          "review_count": 124,
+          "in_stock": true,
+          "weight": "500g",
+          "ingredients": "Raw Mango, Mustard Oil, Red Chili, Turmeric, Salt, Fenugreek",
+          "spice_level": "medium",
+          "featured": true
+        },
+        "quantity": 2,
+        "item_total": 598,
+        "added_at": "2024-01-15T10:30:00Z"
+      },
+      {
+        "product_id": "4",
+        "product": {
+          "id": "4",
+          "name": "Fish Pickle (Bengali Style)",
+          "price": 449,
+          "original_price": 499,
+          "description": "Traditional Bengali fish pickle made with fresh fish and mustard oil.",
+          "category": "non-vegetarian",
+          "image": "images/fish.jpg",
+          "rating": 4.9,
+          "review_count": 203,
+          "in_stock": true,
+          "weight": "400g",
+          "ingredients": "Fresh Fish, Mustard Oil, Turmeric, Red Chili, Salt, Garlic",
+          "spice_level": "hot",
+          "featured": true
+        },
+        "quantity": 1,
+        "item_total": 449,
+        "added_at": "2024-01-15T11:15:00Z"
+      }
+    ],
+    "user_456": [
+      {
+        "product_id": "2",
+        "product": {
+          "id": "2",
+          "name": "Spicy Lime Pickle",
+          "price": 249,
+          "description": "Tangy and spicy lime pickle perfect for all meals.",
+          "category": "vegetarian",
+          "image": "images/lemon.jpg",
+          "rating": 4.6,
+          "review_count": 89,
+          "in_stock": true,
+          "weight": "400g",
+          "ingredients": "Lime, Chili Powder, Salt, Turmeric, Asafoetida, Mustard Seeds",
+          "spice_level": "hot",
+          "featured": true
+        },
+        "quantity": 3,
+        "item_total": 747,
+        "added_at": "2024-01-15T09:45:00Z"
+      }
+    ],
+    "066b3a71-2aad-44a4-9755-f50ecd62763e": [
+      {
+        "product_id": "1",
+        "product": {
+          "id": "1",
+          "name": "Traditional Mango Pickle",
+          "price": 299,
+          "original_price": 350,
+          "description": "Authentic homemade mango pickle with traditional spices and mustard oil.",
+          "category": "vegetarian",
+          "image": "mango_pickle.jpg",
+          "rating": 4.8,
+          "review_count": 124,
+          "in_stock": true,
+          "weight": "500g",
+          "ingredients": "Raw Mango, Mustard Oil, Red Chili, Turmeric, Salt, Fenugreek",
+          "spice_level": "medium",
+          "featured": true
+        },
+        "quantity": 3,
+        "item_total": 897,
+        "added_at": "2025-07-04T08:08:41.736285"
+      },
+      {
+        "product_id": "2",
+        "product": {
+          "id": "2",
+          "name": "Spicy Lime Pickle",
+          "price": 249,
+          "description": "Tangy and spicy lime pickle perfect for all meals.",
+          "category": "vegetarian",
+          "image": "lime_pickle.jpg",
+          "rating": 4.6,
+          "review_count": 89,
+          "in_stock": true,
+          "weight": "400g",
+          "ingredients": "Lime, Chili Powder, Salt, Turmeric, Asafoetida, Mustard Seeds",
+          "spice_level": "hot",
+          "featured": true
+        },
+        "quantity": 2,
+        "item_total": 498,
+        "added_at": "2025-07-04T08:11:57.954789"
+      },
+      {
+        "product_id": "3",
+        "product": {
+          "id": "3",
+          "name": "Mixed Vegetable Pickle",
+          "price": 329,
+          "description": "A delightful mix of seasonal vegetables pickled with aromatic spices.",
+          "category": "vegetarian",
+          "image": "mixed_veg_pickle.jpg",
+          "rating": 4.7,
+          "review_count": 156,
+          "in_stock": true,
+          "weight": "600g",
+          "ingredients": "Mixed Vegetables, Mustard Oil, Spices, Salt, Vinegar",
+          "spice_level": "medium"
+        },
+        "quantity": 1,
+        "item_total": 329,
+        "added_at": "2025-07-04T08:12:00.149591"
+      }
+    ],
+    "73ea1394-63d7-4001-9d9d-7fe0080f7383": [
+      {
+        "product_id": "2",
+        "product": {
+          "id": "2",
+          "name": "Spicy Lime Pickle",
+          "price": 249,
+          "description": "Tangy and spicy lime pickle perfect for all meals.",
+          "category": "vegetarian",
+          "image": "lime_pickle.jpg",
+          "rating": 4.6,
+          "review_count": 89,
+          "in_stock": true,
+          "weight": "400g",
+          "ingredients": "Lime, Chili Powder, Salt, Turmeric, Asafoetida, Mustard Seeds",
+          "spice_level": "hot",
+          "featured": true
+        },
+        "quantity": 1,
+        "item_total": 249,
+        "added_at": "2025-07-04T08:15:51.759497"
+      }
+    ]
+  },
+  "metadata": {
+    "last_updated": "2025-07-04T08:15:51.759497",
+    "total_users": 4,
+    "total_items": 7
+  }
+}

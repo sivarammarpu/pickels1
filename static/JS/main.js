@@ -93,8 +93,8 @@ function addToCart(productId, quantity = 1) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Added to cart successfully!');
-            window.location.href = '/cart';
+            showToast('Added to cart successfully!', 'success');
+            updateCartCount();
         } else {
             showToast(data.message || 'Error adding product to cart', 'error');
         }
@@ -147,11 +147,21 @@ function showToast(message, type = 'success') {
 
 // Update cart count in navbar
 function updateCartCount() {
-    // This would typically fetch the current cart count from the server
-    // For now, we'll just reload the page to update the cart count
-    setTimeout(() => {
-        location.reload();
-    }, 1000);
+    fetch('/cart')
+        .then(response => response.text())
+        .then(html => {
+            // Parse the cart count from the cart page (assuming you render it somewhere)
+            // You should have an element in your navbar like <span id="cart-count">0</span>
+            // Update this element here
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const cartCountElem = tempDiv.querySelector('#cart-count');
+            if (cartCountElem) {
+                document.querySelectorAll('#cart-count').forEach(el => {
+                    el.textContent = cartCountElem.textContent;
+                });
+            }
+        });
 }
 
 // Search functionality

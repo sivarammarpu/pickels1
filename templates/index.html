@@ -42,7 +42,7 @@
                     
                     <!-- CTA Buttons -->
                     <div class="d-flex gap-3 flex-wrap">
-                        <a href="{{ url_for('home') }}" class="btn btn-warning btn-lg px-4 py-3 fw-semibold">
+                        <a href="{{ url_for('home') }}" class="btn btn-warning btn-lg px-4 py-3 fw-semibold" onclick="window.location.href='{{ url_for('home') }}'; return false;">
                             Shop Now <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                         <a href="{{ url_for('about') }}" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">
